@@ -1,0 +1,2 @@
+DPCNN model for text classification
+Word embeddings: pubmed

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png"> -->
+    <title>ICD coding engine </title>
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet">
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/static/css/style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="/static/css/colors/default.css" id="theme" rel="stylesheet">
+
+</head>
+
+<body class="fix-header">
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+                <div class="top-left-part">
+                    <img src="/static/images/logo_login.png" alt="logo" width="80" height="80" />
+                    <!-- Logo -->
+                    <!-- <a class="logo" href="/"> -->
+                    <!-- Logo icon image, you can use font-icon also --><b>
+                        <!--This is dark logo icon--><img src="/static/images/logo_login.png" alt="home" class="dark-logo" /><!--This is light logo icon-->
+                     <!-- </b> -->
+                    <!-- Logo text image you can use text also<span class="hidden-xs"> -->
+                    <!--This is dark logo text-->
+                    <!-- </span> </a> -->
+                </div>
+                <!-- /Logo -->
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                    <li>
+                        <a class="profile-pic" href="#"> <b class="hidden-xs">admin</b></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav slimscrollsidebar">
+                <div class="sidebar-head">
+                    <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu">Navigation</span></h3>
+                </div>
+                <ul class="nav" id="side-menu">
+                    <li style="padding: 70px 0 0;">
+                        <a href="/" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>DEMO ICD</a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Dashboard</h4>
+                    </div>
+                    <!-- <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                        <a href="/" target="_blank" class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Upgrade to Pro</a>
+                        <ol class="breadcrumb">
+                            <li><a href="#">Dashboard</a></li>
+                        </ol>
+                    </div> -->
+                    <!-- /.col-lg-12 -->
+                </div>
+
+                <div class="row">
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                        <div class="white-box">
+                            <h3 class="box-title">ICD coding engine</h3>
+                            <div id="box" style="height: 405px;">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        Input text
+                                        <input type="textarea" id="input_text" size="50" placeholder="sample: bone" required>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <button type="button" class="btn btn-primary btn-md" id="btnGet_icd" onclick="btn_submit();return false;" required>Get ICD code </button>
+                                    </div>
+                                </div>
+                                <form>
+                                    <table>
+                                        <div class="row">
+                                            <tr>
+                                                <div class="row">
+                                                    <div class="col-sm-2">
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <h3 id="text-input">ICD code</h3>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <h3 id=text-score> Score</h3>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <h3 id="text-total">Option
+                                                        </h3>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                    </div>
+
+                                                </div>
+                                            </tr>
+                                            <td class="col-sm-3">
+
+                                            </td>
+                                            <td class="col-sm-2">
+                                                <input disabled type="textarea" id="id1" size="10">
+                                            </td>
+                                            <td class="col-sm-2">
+                                                <input disabled type="textarea" id="sc-id1" size="10">
+                                            </td>
+
+                                            <td class="col-sm-2">
+                                                <input type="radio" name="opition" value="id1">
+                                            </td>
+                                            <td class="col-sm-3"> </td>
+                                            <tr>
+                                                <td class="col-sm-3">
+
+                                                </td>
+                                                <td class="col-sm-2">
+                                                    <input disabled type="textarea" id="id2" size="10">
+                                                </td>
+                                                <td class="col-sm-2">
+                                                    <input disabled type="textarea" id="sc-id2" size="10">
+                                                </td>
+
+                                                <td class="col-sm-2">
+                                                    <input type="radio" name="opition" value="id2">
+                                                    <td class="col-sm-2"> </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-sm-3">
+
+                                                </td>
+                                                <td class="col-sm-2">
+                                                    <input disabled type="textarea" id="id3" size="10">
+                                                </td>
+                                                <td class="col-sm-2">
+                                                    <input disabled type="textarea" id="sc-id3" size="10">
+                                                </td>
+
+                                                <td class="col-sm-2">
+                                                    <input type="radio" name="opition" value="id3">
+                                                </td>
+                                                <td class="col-sm-2"> </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-sm-3">
+
+                                                </td>
+                                                <td class="col-sm-2">
+                                                    <input disabled type="textarea" id="id4" size="10">
+                                                </td>
+                                                <td class="col-sm-2">
+                                                    <input disabled type="textarea" id="sc-id4" size="10">
+                                                </td>
+
+                                                <td class="col-sm-2">
+                                                    <input type="radio" name="opition" value="id4">
+                                                </td>
+                                                <td class="col-sm-2"> </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-sm-3">
+
+                                                </td>
+                                                <td class="col-sm-2">
+                                                    <input disabled type="textarea" id="id5" size="10">
+                                                </td>
+                                                <td class="col-sm-2">
+                                                    <input disabled type="textarea" id="sc-id5" size="10">
+                                                </td>
+
+                                                <td class="col-sm-2">
+                                                    <input type="radio" name="opition" value="id5"><br>
+                                                </td>
+                                                <td class="col-sm-2"> </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-sm-3">
+
+                                                </td>
+                                                <td class="col-sm-2">
+                                                    <!-- <input disabled type="textarea" id="Result-fial" size="16"> -->
+                                                </td>
+                                                <td class="col-sm-2">
+
+                                                </td>
+
+                                                <td class="col-sm-2">
+                                                    <input type="radio" name="opition" value="id6">
+
+
+                                                </td>
+                                                <td class="col-sm-1">
+                                                    <input type="textarea" id="id6" size="25">
+                                                </td>
+                                                <td class="col-sm-1">
+                                                    <!-- <input type="textarea" id="id6" size="25"> -->
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-sm-2">
+
+                                                </td>
+                                                <td class="col-sm-4">
+                                                    <!-- <input disabled type="textarea" id="Result-fial" size="16"> -->
+                                                </td>
+                                                <td class="col-sm-2">
+
+                                                </td>
+
+                                                <td class="col-sm-2">
+                                                    <button type="button" disabled class="btn btn-primary btn-md" id="btnGet" onclick="myFunction()" required>Save results </button>
+                                                </td>
+                                                <td class="col-sm-2"> </td>
+                                            </tr>
+                                    </table>
+                                </form>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div> -->
+
+    </div>
+    </div>
+
+    <script src="/static/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/static/js/jquery.slimscroll.js"></script>
+
+
+
+    <script>
+        function myFunction() {
+            var coffee = document.forms[0];
+            console.log(coffee)
+            var txt = "";
+            var i;
+            for (i = 0; i < coffee.length; i++) {
+                if (coffee[i].checked) {
+                    txt = txt + coffee[i].value + "";
+                }
+            }
+            if (txt == "id6") {
+                var input_text = document.getElementById("input_text").value;
+                var input_id = document.getElementById("id6").value;
+                results = [input_text, max_id, input_id, ]
+                json_file = {
+                    "data": results
+                }
+            } else {
+                var input_text = document.getElementById("input_text").value;
+                // var text_id = document.getElementById("sc-" + txt).value;
+                var input_id = document.getElementById(txt).value;
+                // console.log(text_id)
+                console.log(input_id)
+                console.log('max id', max_id)
+                results = [input_text, max_id, input_id, ]
+                json_file = {
+                    "data": results
+                }
+
+            }
+            load_ajax("/updata_database", "POST", JSON.stringify(json_file), updata_database_susess);
+            document.getElementById("btnGet").disabled = true;
+        }
+
+        function ajax_err(request, error) {
+            console.log(request);
+            console.log(error);
+        }
+
+        function updata_database_susess(data) {
+            alert("database updated successfully!");
+        }
+
+        function load_ajax(url_api, type_api, data_json, success_format) {                
+            $.ajax({                    
+                url: url_api,
+                type: type_api,
+                processData: false,
+                contentType: false,
+                data: data_json,
+                success: success_format,
+                error: ajax_err
+
+            });         
+        }
+
+        let max_id = '';
+
+        function btn_submit_success(data) {
+            document.getElementById("btnGet").disabled = false;
+            list_id = ["id1", "id2", "id3", "id4", "id5"]
+            var max_score = ''
+            console.log(data['data'][0][0])
+            array = data['data']
+            max_score = array[0][1];
+            for (let index = 0; index < array.length; index++) {
+                document.getElementById(list_id[index]).value = array[index][0]
+                document.getElementById("sc-" + list_id[index]).value = array[index][1] + '%'
+                if (max_score < array[index][1]) {
+                    max_score = array[index][1];
+                    max_id = array[index][0]
+                }
+            }
+
+        }
+
+
+        function clear_text() {
+            list_id = ["id1", "id2", "id3", "id4", "id5"]
+            for (let index = 0; index < 5; index++) {
+                document.getElementById(list_id[index]).value = ''
+                document.getElementById("sc-" + list_id[index]).value = ''
+            }
+        }
+
+        function btn_submit() {
+            clear_text()
+            var input_text = document.getElementById("input_text").value;
+            console.log(input_text)
+            load_ajax("/predict_text", "post", JSON.stringify(input_text), btn_submit_success)
+        }
+
+        $("#btnGet_icd").click(function() {
+            $("input[name='opition']").each(function() {
+                if ($(this).val() !== "1") {
+                    $(this).prop("checked", false);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
